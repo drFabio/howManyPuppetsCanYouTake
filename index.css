@@ -4,3 +4,6 @@
 .app--asking .page--answers {
   display: none;
 }
+.inputField__title {
+  font-weight: bold;
+}

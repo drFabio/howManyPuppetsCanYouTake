@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function(){
   const workoutNo = document.getElementById('workoutNo')
   const workoutYes = document.getElementById('workoutYes')
 
+  const askAgain = document.getElementById('askAgain')
+
   const puppetForm = document.getElementById('puppetForm')
 
   const resultValue = document.getElementById('resultValue')
@@ -25,7 +27,9 @@ document.addEventListener("DOMContentLoaded", function(){
     root.classList.add('app--answering')
   }
   function handleSubmit (e) {
-    e.preventDefault()
+    if (e) {
+      e.preventDefault()
+    }
     const formData = new FormData(puppetForm)
     const height = formData.get('height')
     const weight = formData.get('weight')
@@ -55,17 +59,30 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   }
 
+  function onAskAgain () {
+    root.classList.add('app--asking')
+    root.classList.remove('app--answering')
+  }
+  function onFormKey (e) {
+    if (e.code === 'Enter') {
+      handleSubmit()
+    }
+  }
   function initialize () {
     ageRange.addEventListener('change', handleChange)
     weightRange.addEventListener('change', handleChange)
     heightRange.addEventListener('change', handleChange)
+
     handleChange({target: ageRange})
     handleChange({target: weightRange})
     handleChange({target: heightRange})
+
     workoutNo.addEventListener('change', handleChange)
     workoutYes.addEventListener('change', handleChange)
 
     puppetForm.addEventListener('submit', handleSubmit, false)
+    puppetForm.addEventListener('keypress', onFormKey)
+    askAgain.addEventListener('click', onAskAgain)
   }
   initialize()
 })

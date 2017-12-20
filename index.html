@@ -10,27 +10,27 @@
       <div id="questionnaire" class="page page--questions">
         <form id="puppetForm">
           <div class="inputField">
-            <label for="age">Age</label>
+            <label class="inputField__title" for="age">Age</label>
             <input type="range" min="10" max="90" id="age" name="age" value="20">
             <span class="inputField__displayValue" id="ageValue"></span>
           </div>
           <div class="inputField">
-            <label for="height">Height</label>
+            <label class="inputField__title" for="height">Height</label>
             <input type="range" id="height" min="50" max="250" name="height" value="150">
             <span class="inputField__displayValue" id="heightValue"></span>
           </div>
           <div class="inputField">
-            <label for="weight">Weight</label>
+            <label class="inputField__title" for="weight">Weight</label>
             <input type="range" id="weight" min="40" max="250" name="weight" value="100">
             <span class="inputField__displayValue" id="weightValue"></span>
           </div>
           <div class="inputField">
-            <p>Do you workout?</p>
-            <label for="workoutNo">
+            <p class="inputField__title">Do you workout?</p>
+            <label class="inputField__title" for="workoutNo">
               No
               <input type="radio" name="workout" id="workoutNo" value="0" checked />
             </label>
-            <label for="workoutYes">
+            <label class="inputField__title" for="workoutYes">
               Yes
               <input type="radio" name="workout" id="workoutYes" value="1" />
             </label>
@@ -42,6 +42,7 @@
         <h3>You can fight:</h3>
         <div id="resultValue">
         </div>
+        <button id="askAgain">Ask again</button>
       </div>
     </div>
     <script type="text/javascript" src="index.js"></script>
