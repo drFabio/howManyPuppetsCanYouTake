@@ -5,29 +5,37 @@
     <title>How many puppets can you take?</title>
   </head>
   <body>
-    <form>
-      <label for="age">Age</label>
-      <input type="range" min="10" max="90" id="age" name="age">
-      <span class="range-value" id="ageValue"></span>
+    <div id="questionnaire">
+      <form id="puppetForm">
+        <label for="age">Age</label>
+        <input type="range" min="10" max="90" id="age" name="age">
+        <span class="range-value" id="ageValue"></span>
 
-      <label for="height">Height</label>
-      <input type="range" id="height" min="50" max="250" name="height">
-      <span class="range-value" id="heightValue"></span>
+        <label for="height">Height</label>
+        <input type="range" id="height" min="50" max="250" name="height">
+        <span class="range-value" id="heightValue"></span>
 
-      <label for="weight">Weight</label>
-      <input type="range" id="weight" min="40" max="250" name="weight">
-      <span class="range-value" id="weightValue"></span>
+        <label for="weight">Weight</label>
+        <input type="range" id="weight" min="40" max="250" name="weight">
+        <span class="range-value" id="weightValue"></span>
 
-      <p>Do you workout?</p>
-      <label for="workoutNo">
-        No
-        <input type="radio" name="workout" id="workoutNo" value="0" />
-      </label>
-      <label for="workoutYes">
-        Yes
-        <input type="radio" name="workout" id="workoutYes" value="1" />
-      </label>
-    </form>
+        <p>Do you workout?</p>
+        <label for="workoutNo">
+          No
+          <input type="radio" name="workout" id="workoutNo" value="0" />
+        </label>
+        <label for="workoutYes">
+          Yes
+          <input type="radio" name="workout" id="workoutYes" value="1" />
+        </label>
+        <input type="submit" value="send" />
+      </form>
+    </div>
+    <div id="results">
+      <h3>You can fight:</h3>
+      <div id="resultValue">
+      </div>
+    </div>
     <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
