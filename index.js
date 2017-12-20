@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
+  const root = document.getElementById('root')
+
   const ageRange = document.getElementById('age')
   const ageValue = document.getElementById('ageValue')
   const heightRange = document.getElementById('height')
@@ -17,6 +19,11 @@ document.addEventListener("DOMContentLoaded", function(){
   const PUPPET_PER_AGE = 5
   const PUPPETS_IF_WORKOUT = 1.3
 
+  function showResults (numberOfPuppets) {
+    resultValue.innerHTML = numberOfPuppets
+    root.classList.remove('app--asking')
+    root.classList.add('app--answering')
+  }
   function handleSubmit (e) {
     e.preventDefault()
     const formData = new FormData(puppetForm)
@@ -31,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(){
       numberOfPuppets *= PUPPETS_IF_WORKOUT
     }
     numberOfPuppets = Math.floor(numberOfPuppets)
-    resultValue.innerHTML = numberOfPuppets
+    showResults(numberOfPuppets)
   }
   function handleChange (e) {
     const {name, value} = e.target

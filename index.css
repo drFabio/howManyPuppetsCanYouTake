@@ -1,0 +1,6 @@
+.app--answering .page--questions {
+  display: none;
+}
+.app--asking .page--answers {
+  display: none;
+}

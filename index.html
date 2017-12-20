@@ -3,37 +3,45 @@
   <head>
     <meta charset="utf-8">
     <title>How many puppets can you take?</title>
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <div id="questionnaire">
-      <form id="puppetForm">
-        <label for="age">Age</label>
-        <input type="range" min="10" max="90" id="age" name="age" value="20">
-        <span class="range-value" id="ageValue"></span>
-
-        <label for="height">Height</label>
-        <input type="range" id="height" min="50" max="250" name="height" value="150">
-        <span class="range-value" id="heightValue"></span>
-
-        <label for="weight">Weight</label>
-        <input type="range" id="weight" min="40" max="250" name="weight" value="100">
-        <span class="range-value" id="weightValue"></span>
-
-        <p>Do you workout?</p>
-        <label for="workoutNo">
-          No
-          <input type="radio" name="workout" id="workoutNo" value="0" checked />
-        </label>
-        <label for="workoutYes">
-          Yes
-          <input type="radio" name="workout" id="workoutYes" value="1" />
-        </label>
-        <input type="submit" value="send" />
-      </form>
-    </div>
-    <div id="results">
-      <h3>You can fight:</h3>
-      <div id="resultValue">
+    <div id="root" class="app app--asking">
+      <div id="questionnaire" class="page page--questions">
+        <form id="puppetForm">
+          <div class="inputField">
+            <label for="age">Age</label>
+            <input type="range" min="10" max="90" id="age" name="age" value="20">
+            <span class="inputField__displayValue" id="ageValue"></span>
+          </div>
+          <div class="inputField">
+            <label for="height">Height</label>
+            <input type="range" id="height" min="50" max="250" name="height" value="150">
+            <span class="inputField__displayValue" id="heightValue"></span>
+          </div>
+          <div class="inputField">
+            <label for="weight">Weight</label>
+            <input type="range" id="weight" min="40" max="250" name="weight" value="100">
+            <span class="inputField__displayValue" id="weightValue"></span>
+          </div>
+          <div class="inputField">
+            <p>Do you workout?</p>
+            <label for="workoutNo">
+              No
+              <input type="radio" name="workout" id="workoutNo" value="0" checked />
+            </label>
+            <label for="workoutYes">
+              Yes
+              <input type="radio" name="workout" id="workoutYes" value="1" />
+            </label>
+          </div>
+          <input type="submit" value="send" />
+        </form>
+      </div>
+      <div id="results" class="page page--answers">
+        <h3>You can fight:</h3>
+        <div id="resultValue">
+        </div>
       </div>
     </div>
     <script type="text/javascript" src="index.js"></script>
