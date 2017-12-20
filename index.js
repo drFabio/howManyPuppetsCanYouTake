@@ -47,11 +47,18 @@ document.addEventListener("DOMContentLoaded", function(){
         break
     }
   }
-  ageRange.addEventListener('change', handleChange)
-  weightRange.addEventListener('change', handleChange)
-  heightRange.addEventListener('change', handleChange)
-  workoutNo.addEventListener('change', handleChange)
-  workoutYes.addEventListener('change', handleChange)
 
-  puppetForm.addEventListener('submit', handleSubmit, false)
+  function initialize () {
+    ageRange.addEventListener('change', handleChange)
+    weightRange.addEventListener('change', handleChange)
+    heightRange.addEventListener('change', handleChange)
+    handleChange({target: ageRange})
+    handleChange({target: weightRange})
+    handleChange({target: heightRange})
+    workoutNo.addEventListener('change', handleChange)
+    workoutYes.addEventListener('change', handleChange)
+
+    puppetForm.addEventListener('submit', handleSubmit, false)
+  }
+  initialize()
 })
