@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", function(){
   let weightValue
   let workoutNo
   let workoutYes
-  let puppetsToFight
+  let puppetsToFightTemplate
+  let puppetContainerTemplate
   let avatarView
 
   let askAgain
@@ -38,27 +39,30 @@ document.addEventListener("DOMContentLoaded", function(){
   let initialViewBox
   let baseViewBoxWidth
   let baseViewBoxHeight
-
   function showResults (numberOfPuppets) {
     resultValue.innerHTML = numberOfPuppets
     root.classList.remove('app--asking')
     root.classList.add('app--answering')
     person.classList.add('avatar__personGroup--fighting')
+    const container = document.importNode(puppetContainerTemplate.content, true)
+    const puppetContainer = container.querySelector('.puppetContainer')
     for (let i = 0; i < numberOfPuppets; i++) {
-      const puppet = document.importNode(puppetsToFight.content, true)
-      const top = Math.floor(Math.random() * 100) + 10
+      const puppet = document.importNode(puppetsToFightTemplate.content, true)
+      const top = Math.floor(Math.random() * 100)
       const svg = puppet.querySelector('svg')
       const animationDelay = Math.floor(Math.random() * 3000)
       svg.style.top = `${top}px`
       svg.style.color = getRandomColor()
       svg.style['animation-delay'] = `${animationDelay}ms, ${animationDelay + 1000}ms`
-      avatarView.appendChild(puppet)
+      puppetContainer.appendChild(puppet)
     }
+    avatarView.appendChild(container)
 
   }
   function onAskAgain () {
     root.classList.add('app--asking')
     root.classList.remove('app--answering')
+    document.querySelector('.puppetContainer').remove()
     person.classList.remove('avatar__personGroup--fighting')
   }
   function handleSubmit (e) {
@@ -139,7 +143,8 @@ document.addEventListener("DOMContentLoaded", function(){
     askAgain = document.getElementById('askAgain')
     puppetForm = document.getElementById('puppetForm')
     resultValue = document.getElementById('resultValue')
-    puppetsToFight = document.getElementById('puppetsToFight')
+    puppetsToFightTemplate = document.getElementById('puppetsToFightTemplate')
+    puppetContainerTemplate = document.getElementById('puppetContainerTemplate')
     avatarView = document.getElementById('avatarView')
 
     avatar = document.querySelector('.avatar')
