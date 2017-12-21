@@ -1,53 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>How many puppets can you take?</title>
-    <link rel="stylesheet" href="index.css">
-  </head>
-  <body>
-    <div id="root" class="app app--asking">
-      <div id="questionnaire" class="page page--questions">
-        <form id="puppetForm">
-          <div class="inputField">
-            <label class="inputField__title" for="age">Age</label>
-            <input type="range" min="10" max="90" id="age" name="age" value="20">
-            <span class="inputField__displayValue" id="ageValue"></span>
-          </div>
-          <div class="inputField">
-            <label class="inputField__title" for="height">Height</label>
-            <input type="range" id="height" min="50" max="250" name="height" value="150">
-            <span class="inputField__displayValue" id="heightValue"></span>
-          </div>
-          <div class="inputField">
-            <label class="inputField__title" for="weight">Weight</label>
-            <input type="range" id="weight" min="40" max="250" name="weight" value="100">
-            <span class="inputField__displayValue" id="weightValue"></span>
-          </div>
-          <div class="inputField">
-            <p class="inputField__title">Do you workout?</p>
-            <label class="inputField__title" for="workoutNo">
-              No
-              <input type="radio" name="workout" id="workoutNo" value="0" checked />
-            </label>
-            <label class="inputField__title" for="workoutYes">
-              Yes
-              <input type="radio" name="workout" id="workoutYes" value="1" />
-            </label>
-          </div>
-          <input type="submit" value="send" />
-          <svg width="300" height="320">
-            <use xlink:href="stickFigure.svg#stickFigure"></use>
-          </svg>
-        </form>
+   <head>
+      <meta charset="utf-8">
+      <title>How many puppets can you take?</title>
+      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="stickFigure.css">
+   </head>
+   <body>
+      <div id="root" class="app app--asking">
+         <div id="questionnaire" class="page page--questions">
+            <form id="puppetForm">
+               <div class="inputField">
+                  <label class="inputField__title" for="age">Age</label>
+                  <input type="range" min="10" max="90" id="age" name="age" value="20">
+                  <span class="inputField__displayValue" id="ageValue"></span>
+               </div>
+               <div class="inputField">
+                  <label class="inputField__title" for="height">Height</label>
+                  <input type="range" id="height" min="50" max="250" name="height">
+                  <span class="inputField__displayValue" id="heightValue"></span>
+               </div>
+               <div class="inputField">
+                  <label class="inputField__title" for="weight">Weight</label>
+                  <input type="range" id="weight" min="40" max="250" name="weight">
+                  <span class="inputField__displayValue" id="weightValue"></span>
+               </div>
+               <div class="inputField">
+                  <p class="inputField__title">Do you workout?</p>
+                  <label class="inputField__title" for="workoutNo">
+                  No
+                  <input type="radio" name="workout" id="workoutNo" value="0" checked />
+                  </label>
+                  <label class="inputField__title" for="workoutYes">
+                  Yes
+                  <input type="radio" name="workout" id="workoutYes" value="1" />
+                  </label>
+               </div>
+               <input type="submit" value="send" />
+            </form>
+         </div>
+         <div id="results" class="page page--answers">
+            <h3>You can fight:</h3>
+            <div id="resultValue">
+            </div>
+            <button id="askAgain">Ask again</button>
+         </div>
       </div>
-      <div id="results" class="page page--answers">
-        <h3>You can fight:</h3>
-        <div id="resultValue">
-        </div>
-        <button id="askAgain">Ask again</button>
+      <div class="avatarView">
+        <svg version="1.1"
+           xmlns="http://www.w3.org/2000/svg"
+           width="300"
+           height="320"
+           viewBox="0 0 300 320"
+           class="avatar"
+           >
+           <g class="avatar__personGroup">
+              <g class="avatar__bodyGroup">
+                 <circle class="avatar__head" cx="150" cy="50" r="50" fill="green" />
+                 <rect class="avatar__torso" width="20" height="100" y="100" x="140" fill="red" />
+              </g>
+              <g class="avatar__avatar__armGroup">
+                 <rect class="avatar__arm avatar__arm--left" width="15" height="80" y="100" x="125" fill="pink" />
+                 <rect class="avatar__arm avatar__arm--right" width="15" height="80" y="100" x="160" fill="purple" />
+              </g>
+              <g class="avatar__avatar__legGroup">
+                 <rect class="avatar__leg avatar__leg--left" width="15" height="120" y="185" x="125" fill="blue" />
+                 <rect class="avatar__leg avatar__leg--right" width="15" height="120" y="185" x="160" fill="tomato" />
+              </g>
+           </g>
+        </svg>
       </div>
-    </div>
-    <script type="text/javascript" src="index.js"></script>
-  </body>
+      <script type="text/javascript" src="index.js"></script>
+   </body>
 </html>

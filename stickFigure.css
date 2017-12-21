@@ -1,0 +1,39 @@
+@keyframes waiveArms {
+    0%   {transform: rotate(0deg);}
+    70%   {transform: rotate(110deg);}
+    100% {transform: rotate(90deg);}
+}
+@keyframes  kick {
+  0%   {transform: rotate(0deg);}
+  90%   {transform: rotate(110deg);}
+  100% {transform: rotate(90deg);}
+}
+@keyframes  puppetMove {
+  0%   {transform: translateY(1em);}
+  50%  {transform: translateY(-1em);}
+  100% {transform: translateY(0);}
+}
+@keyframes  walkRight {
+  0%   {left: 0;}
+  100% {left: 100%;}
+}
+.avatar__arm--left {
+  transform: rotate(45deg);
+  transform-origin: top;
+}
+.avatar__arm--right {
+  transform: rotate(-45deg);
+  transform-origin: top;
+}
+.avatar__personGroup--fighting .avatar__arm--left {
+  transform-origin: top;
+  animation: linear 0.5s waiveArms infinite alternate;
+}
+.avatar__personGroup--fighting .avatar__arm--right {
+  transform-origin: top;
+  animation: linear 0.5s 0.5s waiveArms infinite alternate;
+}
+.avatar__personGroup--fighting .avatar__leg--left {
+  transform-origin: top;
+  animation: cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.5s 0.5s kick infinite alternate;
+}
