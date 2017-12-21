@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
   const PUPPET_PER_WEIGHT = 20
   const PUPPET_PER_AGE = 5
   const PUPPETS_IF_WORKOUT = 1.3
-
+  const puppetColors = ['BlueViolet', 'Crimson', 'DarkMagenta', 'DarkOliveGreen', 'DeepPink']
   const appState = {
     scales: {
       y: 1,
@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function(){
   let weightValue
   let workoutNo
   let workoutYes
+  let puppetsToFight
+  let avatarView
 
   let askAgain
 
@@ -42,6 +44,17 @@ document.addEventListener("DOMContentLoaded", function(){
     root.classList.remove('app--asking')
     root.classList.add('app--answering')
     person.classList.add('avatar__personGroup--fighting')
+    for (let i = 0; i < numberOfPuppets; i++) {
+      const puppet = document.importNode(puppetsToFight.content, true)
+      const top = Math.floor(Math.random() * 100) + 10
+      const svg = puppet.querySelector('svg')
+      const animationDelay = Math.floor(Math.random() * 3000)
+      svg.style.top = `${top}px`
+      svg.style.color = getRandomColor()
+      svg.style['animation-delay'] = `${animationDelay}ms, ${animationDelay + 1000}ms`
+      avatarView.appendChild(puppet)
+    }
+
   }
   function onAskAgain () {
     root.classList.add('app--asking')
@@ -106,6 +119,14 @@ document.addEventListener("DOMContentLoaded", function(){
       handleSubmit()
     }
   }
+  function getRandomColor () {
+    const index = Math.floor(Math.random() * puppetColors.length)
+    return puppetColors[index]
+  }
+  function createPuppetNode () {
+    const svg = document.createElement('svg')
+  }
+
   function initialize () {
     ageRange = document.getElementById('age')
     ageValue = document.getElementById('ageValue')
@@ -118,6 +139,9 @@ document.addEventListener("DOMContentLoaded", function(){
     askAgain = document.getElementById('askAgain')
     puppetForm = document.getElementById('puppetForm')
     resultValue = document.getElementById('resultValue')
+    puppetsToFight = document.getElementById('puppetsToFight')
+    avatarView = document.getElementById('avatarView')
+
     avatar = document.querySelector('.avatar')
     person = document.querySelector('.avatar__personGroup')
     initialViewBox = avatar.getAttribute('viewBox').split(' ')

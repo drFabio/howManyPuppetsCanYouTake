@@ -8,7 +8,10 @@
    </head>
    <body>
       <div id="root" class="app app--asking">
-         <div id="questionnaire" class="page page--questions">
+        <header>
+          <h1>How many <span class="highlight">puppets</span> can you take?</h1>
+        </header>
+         <section id="questionnaire" class="page page--questions">
             <form id="puppetForm">
                <div class="inputField">
                   <label class="inputField__title" for="age">Age</label>
@@ -27,49 +30,55 @@
                </div>
                <div class="inputField">
                   <p class="inputField__title">Do you workout?</p>
-                  <label class="inputField__title" for="workoutNo">
+                  <label class="checkboxLabel" for="workoutNo">
                   No
                   <input type="radio" name="workout" id="workoutNo" value="0" checked />
                   </label>
-                  <label class="inputField__title" for="workoutYes">
+                  <label class="checkboxLabel" for="workoutYes">
                   Yes
                   <input type="radio" name="workout" id="workoutYes" value="1" />
                   </label>
                </div>
-               <input type="submit" value="send" />
+               <button type="submit">Send</button>
             </form>
-         </div>
-         <div id="results" class="page page--answers">
-            <h3>You can fight:</h3>
-            <div id="resultValue">
+         </section>
+         <section id="results" class="page page--answers">
+            <div class="resultBox">
+              <h3>You can fight:</h3>
+              <div id="resultValue" class="resultNumber">
+              </div>
+              <p class="highlight">Puppets</p>
             </div>
             <button id="askAgain">Ask again</button>
-         </div>
+         </section>
+        <aside id="avatarView" class="avatarView">
+          <svg version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 300 320"
+             class="avatar"
+             >
+             <g class="avatar__personGroup">
+                <g class="avatar__bodyGroup">
+                   <circle class="avatar__head" cx="150" cy="50" r="50" fill="green" />
+                   <rect class="avatar__torso" width="20" height="100" y="100" x="140" fill="red" />
+                </g>
+                <g class="avatar__avatar__armGroup">
+                   <rect class="avatar__arm avatar__arm--left" width="15" height="80" y="100" x="125" fill="pink" />
+                   <rect class="avatar__arm avatar__arm--right" width="15" height="80" y="100" x="160" fill="purple" />
+                </g>
+                <g class="avatar__avatar__legGroup">
+                   <rect class="avatar__leg avatar__leg--left" width="15" height="120" y="185" x="125" fill="blue" />
+                   <rect class="avatar__leg avatar__leg--right" width="15" height="120" y="185" x="160" fill="tomato" />
+                </g>
+             </g>
+          </svg>
+        </aside>
       </div>
-      <div class="avatarView">
-        <svg version="1.1"
-           xmlns="http://www.w3.org/2000/svg"
-           width="300"
-           height="320"
-           viewBox="0 0 300 320"
-           class="avatar"
-           >
-           <g class="avatar__personGroup">
-              <g class="avatar__bodyGroup">
-                 <circle class="avatar__head" cx="150" cy="50" r="50" fill="green" />
-                 <rect class="avatar__torso" width="20" height="100" y="100" x="140" fill="red" />
-              </g>
-              <g class="avatar__avatar__armGroup">
-                 <rect class="avatar__arm avatar__arm--left" width="15" height="80" y="100" x="125" fill="pink" />
-                 <rect class="avatar__arm avatar__arm--right" width="15" height="80" y="100" x="160" fill="purple" />
-              </g>
-              <g class="avatar__avatar__legGroup">
-                 <rect class="avatar__leg avatar__leg--left" width="15" height="120" y="185" x="125" fill="blue" />
-                 <rect class="avatar__leg avatar__leg--right" width="15" height="120" y="185" x="160" fill="tomato" />
-              </g>
-           </g>
+      <template id="puppetsToFight">
+        <svg class="puppet">
+          <use xlink:href="puppet.svg#puppet" width="25%"></use>
         </svg>
-      </div>
+      </template>
       <script type="text/javascript" src="index.js"></script>
    </body>
 </html>

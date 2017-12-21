@@ -14,8 +14,9 @@
   100% {transform: translateY(0);}
 }
 @keyframes  walkRight {
-  0%   {left: 0;}
-  100% {left: 100%;}
+  0%   {opacity: 1;}
+  0.1%   {left: 0; opacity: 1;}
+  100% {left: 100%; opacity: 1;}
 }
 .avatar__arm--left {
   transform: rotate(45deg);
@@ -36,4 +37,10 @@
 .avatar__personGroup--fighting .avatar__leg--left {
   transform-origin: top;
   animation: cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.5s 0.5s kick infinite alternate;
+}
+.puppet {
+  opacity: 0;
+  position: absolute;
+  left:0;
+  animation: linear 0.5s puppetMove infinite alternate, walkRight 4s;
 }

@@ -7,3 +7,89 @@
 .inputField__title {
   font-weight: bold;
 }
+.app {
+  display: grid;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1280px;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+  grid-column-gap: 3rem;
+  grid-row-gap: 2rem;
+  grid-template-areas:
+      "header header"
+      "left right"
+      "footer footer";
+}
+.app--asking {
+  grid-template-columns: 65% auto;
+}
+.app--answering {
+  grid-template-columns: 40% 60%;
+}
+.avatarView {
+  position: relative;
+  grid-area: right;
+  overflow: hidden;
+}
+.avatar {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  right: 0;
+}
+.page {
+  grid-area: left;
+  text-align: center;
+}
+header {
+  grid-area: header;
+  text-align: center;
+}
+.inputField {
+  padding: 0.5em 0;
+  border-bottom: 2px solid black;
+  font-size: 1.2rem;
+  text-align: left;
+}
+.inputField__title {
+  font-size: 1.5rem;
+}
+.checkboxLabel {
+  font-weight: bold;
+}
+button {
+  font-size: 2rem;
+  margin-top: 1em;
+  border: none;
+  background-image: none;
+  background-color: #7ab62f;
+  border-radius: 5px;
+  color: white;
+  padding: 0.2em;
+}
+button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+button:hover:active{
+  background-color: #ced51e;
+}
+.highlight {
+  color: #7ab62f;
+}
+.page--answers {
+  font-size: 2rem;
+}
+.resultBox {
+  border-radius: 5px;
+  background-color: #ced51e;
+  text-align: center;
+  color: white;
+  padding: 1em;
+  font-weight: bold;
+}
+.resultNumber {
+  font-size: 3rem;
+  color: #7ab62f;
+}
