@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
   const PUPPET_PER_WEIGHT = 20
   const PUPPET_PER_AGE = 5
   const PUPPETS_IF_WORKOUT = 1.3
-  const puppetColors = ['BlueViolet', 'Crimson', 'DarkMagenta', 'DarkOliveGreen', 'DeepPink']
+  const puppetColors = ['BlueViolet', 'Crimson', 'DarkMagenta', 'DarkOliveGreen', 'DeepPink', 'LightSeaGreen', 'MediumSeaGreen', 'OrangeRed', 'Turquoise']
   const appState = {
     scales: {
       y: 1,
